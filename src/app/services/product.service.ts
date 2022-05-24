@@ -9,7 +9,8 @@ import { map } from 'rxjs/operators'
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8080/api/products';
+  // by default it will return 20, but with that (?size=100) it will return as much as you want.
+  private baseUrl = 'http://localhost:8080/api/products?size=100';
 
   constructor(private httpClient: HttpClient) { }
 
