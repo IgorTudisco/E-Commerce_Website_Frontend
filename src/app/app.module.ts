@@ -10,7 +10,7 @@ import { Routes, RouterModule } from '@angular/router'
 
 const routes: Routes = [
 
-  { path: 'category/id', component: ProductsListComponent },
+  { path: 'category/:id', component: ProductsListComponent },
   { path: 'category', component: ProductsListComponent },
   { path: 'products', component: ProductsListComponent },
   { path: '', redirectTo: '/products', pathMatch: 'full' }, // 'Full' join all the 'Path' instead of only the prefix
