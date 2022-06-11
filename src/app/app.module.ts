@@ -6,11 +6,12 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { HttpClientModule } from '@angular/common/http'
 import { ProductService } from './services/product.service';
 
-import { Routes, RouterModule } from '@angular/router'
+import { Routes, RouterModule } from '@angular/router';
+import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component'
 
 const routes: Routes = [
 
-  { path: 'category/:id', component: ProductsListComponent },
+  { path: 'category/:id/:name', component: ProductsListComponent },
   { path: 'category', component: ProductsListComponent },
   { path: 'products', component: ProductsListComponent },
   { path: '', redirectTo: '/products', pathMatch: 'full' }, // 'Full' join all the 'Path' instead of only the prefix
@@ -21,7 +22,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    ProductCategoryMenuComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
