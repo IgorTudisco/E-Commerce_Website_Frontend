@@ -38,10 +38,10 @@ export class ProductService {
 
   }
 
-  getProduct(theProdutcId: Number): Observable<Product> {
+  getProduct(theProductId: Number): Observable<Product> {
 
     // Build URl based on category id
-    const productUrl = `${this.baseUrl}/${theProdutcId}`;
+    const productUrl = `${this.baseUrl}/${theProductId}`;
 
     return this.httpClient.get<Product>(productUrl);
 
