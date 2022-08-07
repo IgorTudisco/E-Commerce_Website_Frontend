@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -10,37 +10,27 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  /*
-    Using this way the (product: Product = new Product();)
-    is the same as using this (product?: Product;)
-  */
+  product: Product = new Product();
 
-  product?: Product;
-
-  constructor(
-    private productService: ProductService,
-    private route: ActivatedRoute
-  ) { }
+  constructor(private productService: ProductService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
     this.route.paramMap.subscribe(() => {
       this.handleProductDetails();
     })
-
   }
 
   handleProductDetails() {
 
     // get the "id" param string. Convert string to a using Number()
-    const theProdutcId: Number = Number(this.route.snapshot.paramMap.get('id'));
+    const theProductId: Number = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.productService.getProduct(theProdutcId).subscribe(
+    this.productService.getProduct(theProductId).subscribe(
       data => {
         this.product = data;
       }
     )
-
   }
 
 }
